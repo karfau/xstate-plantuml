@@ -70,9 +70,21 @@ const transitions = (stateNode, buffer) => {
 };
 
 const activities = (stateNode, buffer) => {
-  normalizeStringArray(stateNode.activities).forEach(
-    activity => buffer.appendf`${stateNode.id} : do/${activity}`
-  );
+  normalizeArray(stateNode.activities).forEach(
+    activity => {
+      if (typeof activity === 'object' && activity.type) {
+        switch (activity.type) {
+          case 'xstate.invoke':
+            buffer.appendf`${stateNode.id} : invoke/${activity.id}`;
+            break;
+          default:
+            buffer.appendf`${stateNode.id} : do/type:${activity.type}`;
+        }
+      } else {
+        buffer.appendf`${stateNode.id} : do/${activity}`;
+      }
+    }
+  )
 };
 
 const internalActions = (stateNode, buffer) => {
