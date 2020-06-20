@@ -24,14 +24,16 @@ const iterateTransitions = stateNode => {
   }
 }
 
-const normalizeStringArray = array => {
+const normalizeArray = array => {
   if (!array) {
     return [];
   }
-
-  array = Array.isArray(array) ? array : [array];
-  return array.map(e => (typeof e === 'string' ? e : e.name || e.type));
+  return Array.isArray(array) ? array : [array];
 };
+
+const normalizeStringArray = array =>
+  normalizeArray(array).map(e => (typeof e === 'string' ? e : e.name || e.type));
+
 
 const transitionGuards = cond => {
   cond = normalizeStringArray(cond);
