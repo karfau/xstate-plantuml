@@ -28,3 +28,12 @@ jobs:
     - run: npm test
     - run: npm run types
     - run: git diff HEAD --exit-code
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "Update example/*.svg"
+      run: docker-compose run --rm -T plantuml
+    - name: "Fail if not up to date"
+      run: git add --verbose --all examples && git diff HEAD --exit-code
