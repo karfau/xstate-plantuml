@@ -1,7 +1,7 @@
 version: '2'
 services:
   plantuml:
-    image: karfau/plantuml:1.2020.21
+    image: karfau/plantuml:1.2020.22
     container_name: plantuml
     volumes:
       - ./examples/:/examples/
