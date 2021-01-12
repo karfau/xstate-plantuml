@@ -27,6 +27,7 @@ jobs:
     - run: yarn
     - run: npm test
     - run: npm run types
+    - run: npx runex ./test-transfer.js
     - run: git diff HEAD --exit-code
 
   docs:

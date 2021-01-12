@@ -7,15 +7,11 @@ This fork was created to add improved support for xstate@v4 and is currently ins
   "@karfau/xstate-plantuml": "github:karfau/xstate-plantuml#{TAG OR HASH}"
 ```
 
-#### [Try online](https://codesandbox.io/s/43yj22oy20?module=%2Fsrc%2Fmachine.json)
-
-
 ## Installation
 
 ```json
   "@karfau/xstate-plantuml": "github:karfau/xstate-plantuml#{TAG OR HASH}"
 ```
-([xstate](https://github.com/davidkpiano/xstate) is a peer dependency, if you don't have it insalled you need to run `npm install xstate`)
 
 <!--
 ```
@@ -23,8 +19,20 @@ npm install @karfau/xstate-plantuml
 ```
 -->
 
+### peerDependencies
+
+Peer dependencies are optional: the methods that need them have an optional argument to pass alternatives that provide the same API.
+
+- [`xstate`](https://github.com/davidkpiano/xstate)  
+  used by `visualize`(see [Options](#visualize-options))  
+  to install, run `npm install xstate`
+- [`execa`](https://github.com/sindresorhus/execa) 
+  used by `src/transfer:transfer.plantuml`  
+  to install, run `npm install execa`
+
 ## Usage
 
+### visualize
 import `@karfau/xstate-plantuml` and call it's default export using a xstate config or machine
 
 ```js
@@ -50,7 +58,7 @@ const config = {
 visualize(config);
 ```
 
-Which returns a string containing the following plantuml source
+Which returns a string, containing the following plantuml source
 
 ```plantuml
 @startuml
@@ -73,7 +81,7 @@ Which you can render to the following image
 
 ![usage](examples/usage.svg?sanitize=true)
 
-## Options
+#### Options
 
 In addition to a state machine, `visualize` accepts an options map
 
@@ -113,6 +121,26 @@ state "light" as light {
 compiles to
 
 ![options](examples/options.svg?sanitize=true)
+
+### transfer
+
+To directly use plantuml to transform a puml file to an image (or anything else) and only do that after updating the puml file.
+
+There are some extra dependencies required for that:
+- `execa` (see [peerDependencies](#peerdependencies))
+- depending on the command used to execute `plantuml`:
+  - `docker`
+  - `java` and a local copy of `plantuml.jar` 
+
+[`test-transfer.sh`](https://github.com/karfau/xstate-plantuml/blob/master/test-transfer.js) shows how it can be used. 
+
+To import the transfer module in your project: 
+
+```js
+import transfer from '@karfau/xstate-plantuml/src/transfer';
+
+transfer({...});
+```
 
 ## Examples
 
