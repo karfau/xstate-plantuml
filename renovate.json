@@ -13,7 +13,7 @@
   "ignoreDeps": ["xstate3"],
   "masterIssue": true,
   "masterIssueTitle": "Dependencies Dashboard (Renovate Bot)",
-  "prCreation": "not-pending",
+  "prCreation": "immediate",
   "prConcurrentLimit": 1,
   "prHourlyLimit": 4,
   "packageRules": [
