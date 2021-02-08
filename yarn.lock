@@ -3447,10 +3447,10 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xstate/-/xstate-3.3.3.tgz#64177cd4473d4c2424b3df7d2434d835404b09a9"
   integrity sha512-p0ZYDPWxZZZRAJyD3jaGO9/MYioHuxZp6sjcLhPfBZHAprl4EDrZRGDqRVH9VvK8oa6Nrbpf+U5eNmn8KFwO3g==
 
-xstate@4.16.1:
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.16.1.tgz#b75eed10bca380a6db4d7a7ec32dfb9e30f4272f"
-  integrity sha512-YNMcEmYkhtfl+73NQwYg+fj4qUCDF8K2KCtXJNVdwdMQP6o/ASPkaW6gPkQ/E9PbT0Tuiw+RUJsWxIp/v572Bw==
+xstate@4.16.2:
+  version "4.16.2"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.16.2.tgz#d6b973b1253b8c85f50f68601837287d59d4bf34"
+  integrity sha512-EY39NNZnwM4tRYNmQAi1c2qHuZ1lJmuDpEo1jxiRcfS+1jPtKRAjGRLNx3fYKcK0ohW6mL41Wze3mdCF0SqavA==
 
 y18n@^4.0.0:
   version "4.0.0"
