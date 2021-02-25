@@ -17,10 +17,7 @@ declare function visualize(machine: import("xstate").MachineConfig<any, any, any
 declare namespace visualize {
     export { MachineConfig, StateMachine, StateNode, StateNodesConfig, StateSchema, VisualizeOptions };
 }
-type StateNode = import("xstate/lib/StateNode").StateNode<any, any, import("xstate").EventObject, {
-    value: any;
-    context: any;
-}>;
+type StateNode = import('xstate').StateNode;
 type VisualizeOptions = {
     leftToRight?: boolean | undefined;
     skinParams?: string[] | undefined;
@@ -31,10 +28,5 @@ type StateMachine = import("xstate").StateMachine<any, any, any, {
     value: any;
     context: any;
 }>;
-type StateNodesConfig = {
-    [x: string]: import("xstate/lib/StateNode").StateNode<any, any, any, {
-        value: any;
-        context: any;
-    }>;
-};
-type StateSchema = import("xstate").StateSchema<any>;
+type StateNodesConfig = import('xstate').StateNodesConfig<any, any, any>;
+type StateSchema = import('xstate').StateSchema;
