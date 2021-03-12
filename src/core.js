@@ -68,7 +68,15 @@ const normalizeArray = array => {
 };
 
 const normalizeStringArray = array =>
-  normalizeArray(array).map(e => (typeof e === 'string' ? e : e.name || e.type));
+  normalizeArray(array).map(e =>
+    typeof e === 'string'
+      ? e
+      : (
+        typeof e.predicate === 'function'
+          ? e.predicate.displayName || e.predicate.name
+          : e.name || e.type
+      )
+  );
 
 
 const transitionGuards = cond => {
